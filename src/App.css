@@ -15,7 +15,7 @@ body {
 }
 
 .header {
-  padding: 10px 0;
+  padding-top: 8px;
   background-color: white;
   border-bottom: 2px solid rgb(200, 200, 200);
 }
