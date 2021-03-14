@@ -1,12 +1,36 @@
 import {useEffect, useState} from 'react';
 
 
-function Header(){
-    const [user, setUser] = useState('Jose');
+function Header(props){
     
+    useEffect(function(){
+        
+    }, []);
+
+    
+    function abrirModalCriarConta(e){
+        e.preventDefault();
+        alert('Criar Conta');
+    }
+
     return (
 
         <div className="header">
+
+            <div className="modalCriarConta">
+                <div className="formCriarConta">
+                    <h3>Registrar Conta</h3>
+                    <form>
+                        <input type="text" placeholder="Seu Email"/>
+                        <br/>
+                        <input type="text" placeholder="Seu Usuário"/>
+                        <br/>
+                        <input type="password" placeholder="Sua Senha"/>
+                        <br/>
+                        <input type="submit" name="cadastrar" value="Registrar"/>
+                    </form>
+                </div>
+            </div>
 
             <div className="center">
 
@@ -17,9 +41,9 @@ function Header(){
             </div>
 
             {
-                (user)?
+                (props.user)?
                 <div className="header__logadoInfo">
-                    <span>Olá <b>{user}</b> </span>
+                    <span>Olá <b>{props.user}</b> </span>
                     <a href="#">Postar</a>
                 </div> 
                 :
@@ -28,7 +52,12 @@ function Header(){
                     <input type="text" placeholder="Usuário"/>
                     <input type="password" placeholder="Senha"/>
                     <input type="submit" name="acao" value="Login"/>
-                    <input type="submit" name="acao" value="Registrar"/>
+                    <a onClick= {
+                        function(e) {
+                            abrirModalCriarConta(e)
+                        }
+                    } href="#">Registrar</a>
+
                 </form>
                 </div>
             }

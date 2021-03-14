@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import {db} from './firebase.js';
 import {useEffect, useState} from 'react';
@@ -7,7 +6,7 @@ import Header from './Header';
 
 function App() {
 
-  
+  const [user, setUser] = useState();
 
 
   useEffect(function(){
@@ -18,15 +17,15 @@ function App() {
 
 
 
-
   return (
     <div className="App">
 
-      <Header>
+      <Header setUser={setUser} user={user}></Header>
 
-      </Header>
+
 
     </div>
+
   );
 }
 
